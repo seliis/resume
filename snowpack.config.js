@@ -11,7 +11,7 @@ module.exports = {
         "@snowpack/plugin-svelte"
     ],
     devOptions: {
-        open: "firefox",
+        open: "none",
         hmr: true
     }
 }

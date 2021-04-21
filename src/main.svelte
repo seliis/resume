@@ -15,8 +15,8 @@
 </script>
 
 <main onmousedown="return false">
-    <Router {routes}/>
     <Menu/>
+    <Router {routes}/>
 </main>
 
 <style>

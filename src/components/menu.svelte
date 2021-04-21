@@ -1,12 +1,13 @@
 <script>
     let active = false;
+    
     function btnFunc() {
         active = !active;
     }
 
     function menuFunc(path) {
+        window.location.href = "#" + path;
         active = !active;
-        alert(path);
     }
 </script>
 
@@ -22,13 +23,13 @@
             <li id="m1" on:click={()=>menuFunc("/")}>
                 home
             </li>
-            <li id="m2" on:click={()=>menuFunc("/")}>
+            <li id="m2" on:click={()=>menuFunc("/profile")}>
                 profile
             </li>
-            <li id="m3" on:click={()=>menuFunc("/")}>
+            <li id="m3" on:click={()=>menuFunc("/career")}>
                 career
             </li>
-            <li id="m4" on:click={()=>menuFunc("/")}>
+            <li id="m4" on:click={()=>menuFunc("/activity")}>
                 activity
             </li>
         </ul>
@@ -99,6 +100,8 @@
         cursor: pointer;
         font-size: 3rem;
         list-style: none;
+        font-weight: 700;
+        text-transform: uppercase;
         transform: translateY(2%);
         transition: all 500ms ease-in;
     }
