@@ -7,14 +7,17 @@
 
     // Pages
     import Home from "./routes/home.svelte"
+    import Profile from "./routes/profile.svelte"
 
     // Routing
     const routes = {
-        "/": Home
+        "/": Home,
+        "/profile": Profile
     }
 </script>
 
-<main onmousedown="return false">
+<!-- <main onmousedown="return false"> -->
+<main>
     <Menu/>
     <Router {routes}/>
 </main>
@@ -23,12 +26,16 @@
     :global(body) {
         font-family: "Noto Sans KR", sans-serif;
         background-color: #080808;
-        color: #CCCCCC;
-        overflow: hidden;
+        color: #FFFFFF;
         cursor: default;
+        margin: 0;
+    }
+
+    main {
+        position: relative;
+        overflow: hidden;
         height: 100vh;
         width: 100vw;
-        margin: 0;
     }
 
     * {
@@ -40,4 +47,10 @@
     @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono&display=swap');
     @import url('https://fonts.googleapis.com/css2?family=Fira+Code&display=swap');
+
+    /* Developing Note */
+    /* 1. Make main below from body prevent global overflow. */
+    /* 2. You must give relative position in main for prevent global overflow. */
+    /* 3. Opacity make z-index problem. */
+    /* 4. Animation make z-index problem. */
 </style>

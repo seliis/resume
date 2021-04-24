@@ -11,39 +11,46 @@
     }
 </script>
 
-<div id="btn" class:active={active} on:click={btnFunc}>
-    <div class="line top"></div>
-    <div class="line mid"></div>
-    <div class="line btm"></div>
-</div>
+<header>
+    <div id="btn-wrap">
+        <div id="btn" class:active={active} on:click={btnFunc}>
+            <div class="line top"></div>
+            <div class="line mid"></div>
+            <div class="line btm"></div>
+        </div>
+    </div>
 
-<div id="tbl" class:active={active}>
-    <nav>
-        <ul>
-            <li id="m1" on:click={()=>menuFunc("/")}>
-                home
-            </li>
-            <li id="m2" on:click={()=>menuFunc("/profile")}>
-                profile
-            </li>
-            <li id="m3" on:click={()=>menuFunc("/career")}>
-                career
-            </li>
-            <li id="m4" on:click={()=>menuFunc("/activity")}>
-                activity
-            </li>
-        </ul>
-    </nav>
-</div>
+    <div id="tbl" class:active={active}>
+        <nav>
+            <ul>
+                <li id="m1" on:click={()=>menuFunc("/")}>
+                    home
+                </li>
+                <li id="m2" on:click={()=>menuFunc("/profile")}>
+                    profile
+                </li>
+                <li id="m3" on:click={()=>menuFunc("/career")}>
+                    career
+                </li>
+                <li id="m4" on:click={()=>menuFunc("/activity")}>
+                    activity
+                </li>
+            </ul>
+        </nav>
+    </div>
+</header>
 
 <style>
-    #btn {
+    #btn-wrap {
         position: absolute;
+        z-index: 1;
+    }
+
+    #btn {
         cursor: pointer;
         margin: 30px;
         height: 50px;
         width: 50px;
-        z-index: 1;
     }
 
     #btn:hover {
@@ -52,7 +59,7 @@
 
     .line {
         transition: all 500ms ease-in;
-        background-color: #CCCCCC;
+        background-color: #FFFFFF;
         margin: 7.5px 0;
         height: 7.5px;
         width: 100%;
@@ -75,6 +82,7 @@
     }
 
     #tbl {
+        z-index: 0;
         opacity: 0;
         width: 100%;
         height: 100%;
@@ -83,12 +91,13 @@
         position: absolute;
         text-align: center;
         align-items: center;
+        background: #450005;
         letter-spacing: 0.25rem;
         justify-content: center;
         transform: translateX(100%);
-        background-color: #0F2027;
         transition: all 500ms ease-in;
-        background-image: linear-gradient(315deg, #0F2027, #203A43, #2C5364);
+        /* background: linear-gradient(315deg, #0F2027, #203A43, #2C5364); */
+        background: linear-gradient(315deg, #450005, #2E0003, #170001);
     }
 
     #tbl ul {
@@ -101,7 +110,7 @@
         font-size: 3rem;
         list-style: none;
         font-weight: 700;
-        text-transform: uppercase;
+        text-transform: lowercase;
         transform: translateY(2%);
         transition: all 500ms ease-in;
     }
@@ -109,7 +118,6 @@
     #tbl.active {
         transform: translateX(0%);
         opacity: 1;
-        z-index: 0;
     }
 
     #tbl.active li {
