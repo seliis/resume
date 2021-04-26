@@ -32,9 +32,10 @@
     </div>
     <div class="container right">
         <div class="content">
-            <h2>{getStr("취미는 프로그래밍입니다")}</h2>
+            <h2>{getStr("그리고 프로그래머입니다")}</h2>
             <h3>
-                현재에는 항공기 데이터 분석 업무를 하고 있습니다.
+                취미로 프로그래밍을 하고 있고
+                완전히 매료되어 있습니다.
             </h3>
         </div>
         <i class="fas fa-code"></i>
@@ -43,22 +44,21 @@
         <i class="fas fa-microchip"></i>
         <div class="content">
             <h2>
-                {getStr("소프트웨어는 너무나 아름답습니다")}
+                {getStr("코드는 사랑스럽습니다")}
             </h2>
             <h3>
-                어떠한 문제에는 항상 더 나은 해결방법이 있습니다.
-                <br>
-                소프트웨어는 효율적인 방법이 될 수 있습니다.
+                어떠한 문제에는 항상 멋진 해결책이 있습니다.
+                <br>프로그래밍을 통해 그것을 이룰 수 있습니다.
             </h3>
         </div>
     </div>
     <div class="container right">
         <div class="content">
-            <h2>{getStr("일은 효율적으로 할 수 있습니다")}</h2>
+            <h2>{getStr("더 나은 방식을 위해")}</h2>
             <h3>
-                업무를 데이터베이스와 VBA 로 자동화하고 있습니다.
+                현재 업무를 VBA 와 SQL 을 통해 프로그램화 하고 있습니다.
                 <br>
-                효율성과 정확성 그리고 인적결함의 방지를 생각할 수 있습니다.
+                이를 통해 업무를 수행하는것이 아닌 관리를 할 수 있습니다.
             </h3>
         </div>
         <i class="fas fa-chart-line"></i>
@@ -76,24 +76,24 @@
         <i class="fas fa-book"></i>
         <div class="content">
             <h2>
-                {getStr("배우는 것에서 즐거움을 느낍니다")}
+                {getStr("배우는 것은 즐겁습니다")}
             </h2>
             <h3>
                 늘 새로운 것을 둘러보며 탐구하고자 합니다.
                 <br>
-                변화는 빠르게 다가오며 세상은 아는만큼 보이기 때문입니다.
+                몰랐던 세상이 펼쳐지면 너무나도 흥미롭습니다.
             </h3>
         </div>
     </div>
     <div class="container right">
         <div class="content">
             <h2>
-                {getStr("블록체인과 인공지능은 미래입니다")}
+                {getStr("블록체인과 인공지능")}
             </h2>
             <h3>
-                미래에는 이들이 우리 생활을 바꿀것이며 그 변화는 이미 시작되었습니다.
+                미래에는 이 두 기술이 우리 생활을 크고 빠르게 바꿀것입니다.
                 <br>
-                플로우와 텐서플로우를 통해 그들을 알아가고자 합니다.
+                변화는 이미 시작되었습니다. 그들을 알아가고자 합니다.
             </h3>
         </div>
         <i class="fab fa-bitcoin"></i>
@@ -241,6 +241,10 @@
         padding: 0 5rem;
     }
 
+    .content {
+        width: 50%;
+    }
+
     .left {
         text-align: left;
     }
@@ -332,15 +336,19 @@
         }
 
         .container h2 {
-            font-size: 1.75rem;
+            font-size: 1.5rem;
         }
 
         .container h3 {
-            font-size: 1.5rem;
+            font-size: 1.25rem;
         }
 
         .content {
             width: 75%;
+        }
+
+        .content h3 {
+            text-align: left;
         }
 
         #lang {

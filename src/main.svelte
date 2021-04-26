@@ -22,7 +22,7 @@
     }
 
     // Routing
-    let routes = {
+    const routes = {
         "/": Home,
         "/about": About,
         "/career": Career,
@@ -45,6 +45,11 @@
 </main>
 
 <style>
+    * {
+        margin: 0;
+        padding: 0;
+    }
+
     :global(body) {
         font-family: "Noto Sans KR", sans-serif;
         background-color: #002451;
@@ -104,6 +109,22 @@
 
     section {
         overflow: hidden;
+    }
+
+    @media only screen and (max-width: 1600px) {
+        main {
+            grid-template-rows: 4rem 1fr;
+        }
+
+        #btn {
+            height: 1.5rem;
+            width: 1.5rem;
+        }
+
+        .line {
+            margin: 4px 0;
+            height: 4px;
+        }
     }
 
     /* Google Fonts */
