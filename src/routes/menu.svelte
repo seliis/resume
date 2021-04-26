@@ -1,0 +1,69 @@
+<script>
+    import { link } from "svelte-spa-router"
+    import { menuBool } from "../store.js"
+
+    const menus = [
+        "home", "about", "career", "code"
+    ]
+
+    function btnFunc() {
+        $menuBool = !$menuBool;
+    }
+</script>
+
+<div id="menu">
+    {#each menus as menu}
+        {#if menu == "home"}
+            <a href="/" use:link on:click={btnFunc}>
+                {menu}
+            </a>
+        {:else}
+            <a href="/{menu}" use:link on:click={btnFunc}>
+                {menu}
+            </a>
+        {/if}
+    {/each}
+</div>
+
+<style>
+    a {
+        text-decoration: none;
+        color: #C1CCCC;
+        font-size: 3rem;
+        text-align: center;
+        width: 75%;
+        border-radius: 1rem;
+        margin: 1rem;
+        padding: 2rem;
+        letter-spacing: 0.75rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        font-family: "Roboto", sans-serif;
+        background-color: #001126;
+        transition: all 300ms ease;
+    }
+
+    a:hover {
+        color: #001126;
+        background-color: #E2B640;
+    }
+
+    #menu {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+        height: 100%;
+    }
+
+    @media only screen and (max-width: 1600px) {
+        a {
+            font-size: 1.5rem;
+            border-radius: 0.5rem;
+            margin: 1rem;
+            padding: 1.5rem;
+            font-weight: 700;
+        }
+    }
+</style>

@@ -1,60 +1,68 @@
 <script>
+
 </script>
 
-<section>
-    <div id="plane"></div>
-    <div id="info">
-        <div id="name">IN SUN</div>
-        <div id="desc">AVIATION & PROGRAMMING</div>
+<div id="home">
+    <img src="./image/plane.webp" alt="home">
+    <div id="text">
+        <h1>IN SUN</h1>
+        <h2>AVIATION & PROGRAMMING</h2>
     </div>
-</section>
+</div>
 
 <style>
-    section {
-        height: 100%;
+    * {
+        margin: 0;
+        padding: 0;
     }
 
-    #plane {
-        background-image: url("./image/plane.webp");
-        background-position: 40% bottom;
-        background-size: cover;
+    #home {
+        position: relative;
+        height: 100%;
+        width: 100%;
+        text-align: center;
+        overflow: hidden;
+    }
+
+    img {
+        object-position: 42.5% bottom;
+        object-fit: cover;
+        height: 100%;
+        width: 100%;
+    }
+
+    #text {
         position: absolute;
-        opacity: 0.5;
-        height: 100%;
-        width: 100%;
-        z-index: -1;
-    }
-
-    #info {
-        justify-content: center;
-        flex-direction: column;
-        align-items: center;
-        display: flex;
-        height: 100%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        text-shadow: 3px 3px 5px #080808;
+        font-family: "Roboto", sans-serif;
         width: 100%;
     }
 
-    #name {
-        font-weight: 500;
+    h1 {
         font-size: 9rem;
+        font-weight: 700;
+        color: white;
     }
 
-    #desc {
-        letter-spacing: 0.25rem;
-        color: #FD2F4A;
-        font-weight: 400;
+    h2 {
         font-size: 3rem;
+        font-weight: 500;
+        color: #FD2F4A;
+        letter-spacing: 0.5rem;
     }
 
-    @media only screen and (max-width: 1300px) {
-        #name {
-            font-size: 3rem;
-            font-weight: 700;
+    @media only screen and (max-width: 1600px) {
+        h1 {
+            font-size: 5rem;
         }
 
-        #desc {
+        h2 {
             font-size: 1rem;
-            font-weight: 700;
+            letter-spacing: 0.25rem;
+            font-weight: 900;
         }
     }
 </style>
