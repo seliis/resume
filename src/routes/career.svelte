@@ -1,5 +1,4 @@
 <script>
-
 </script>
 
 <div id="career">
@@ -171,7 +170,7 @@
         }
 
         .content h1 {
-            font-size: 0.75rem;
+            font-size: 1rem;
         }
 
         .content p {
