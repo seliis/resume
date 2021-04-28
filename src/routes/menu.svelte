@@ -1,6 +1,8 @@
 <script>
     import { link } from "svelte-spa-router"
     import { menuBool } from "../store.js"
+    import { slide } from "svelte/transition"
+    import { quintOut } from "svelte/easing"
 
     const menus = [
         "home", "about", "career", "code"
@@ -9,9 +11,15 @@
     function btnFunc() {
         $menuBool = !$menuBool;
     }
+
+    const menuOps = {
+        delay: 0,
+        duration: 500,
+        easing: quintOut
+    }
 </script>
 
-<div id="menu">
+<div id="menu" transition:slide="{menuOps}">
     {#each menus as menu}
         {#if menu == "home"}
             <a href="/" use:link on:click={btnFunc}>
@@ -31,7 +39,7 @@
         color: #C1CCCC;
         font-size: 3rem;
         text-align: center;
-        width: 75%;
+        width: 50%;
         border-radius: 1rem;
         margin: 1rem;
         padding: 2rem;
@@ -55,6 +63,7 @@
         justify-content: center;
         width: 100%;
         height: 100%;
+        background-color: #001C40;
     }
 
     @media only screen and (max-width: 1600px) {
@@ -64,6 +73,7 @@
             margin: 1rem;
             padding: 1.5rem;
             font-weight: 700;
+            width: 75%;
         }
     }
 </style>
