@@ -225,6 +225,20 @@
         color: #FFFAF0;
     }
 
+    #about::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    #about::-webkit-scrollbar-thumb {
+        background-color: #E2B640;
+        border-radius: 10px;
+    }
+
+    #about::-webkit-scrollbar-track {
+        background-color: #001126;
+        border-radius: 10px;
+    }
+
     .container {
         display: flex;
         align-items: center;

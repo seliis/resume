@@ -60,3 +60,14 @@ for gid, data in pairs(mist.DBs.humansById) do
     end
 end`
 );
+
+export let endCode = writable(
+`-- my awesome plan
+repeat
+    drink("monster")
+    code(24/7, 365)
+    eat("burger")
+    alwaysHappy()
+    sleep.well()
+until alive ~= true`
+);

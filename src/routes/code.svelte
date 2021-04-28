@@ -7,7 +7,8 @@
         headingTo,
         getUnitAngel,
         missileTracking1,
-        missileTracking2
+        missileTracking2,
+        endCode
     } from "../store.js"
 </script>
 
@@ -16,6 +17,17 @@
 </svelte:head>
 
 <div id="component-code">
+    <div id="intro">
+        <i class="fas fa-laptop-code"></i>
+        <p>
+            이 섹션에는 제가 작성한 코드들이 있습니다.
+            더 자세한 코드는 저의 깃허브에서 보실 수 있습니다.
+            깃허브 링크는 About 섹션 하단에서 찾으실 수 있습니다.
+            다만 VBA 코드의 경우 정부 인트라넷에서 사용되므로
+            보안 관계상 깃허브에서 보실 수 없습니다.
+            양해를 바랍니다.
+        </p>
+    </div>
     <div class="container">
         <div class="desc">
             <h1>해수면 고도 획득</h1>
@@ -44,7 +56,7 @@
                 <samp>dz</samp>, <samp>dx</samp> 는 각 차원의
                 델타값을 메모리에 할당합니다.
                 음수 반환이 가능한 아크탄젠트 메서드인
-                <strong>math.atan2</strong> 를 통해 상대적 라디안값을 얻고
+                <strong>math.atan2</strong> 를 통해 상대적 라디안 값을 얻고
                 그 라디안 값을 <strong>math.deg</strong> 에 인자로 전달하여
                 육십분각으로 변환 후 리턴시키고 함수를 종료합니다.
                 만약 결과값이 음수이면 360을 더해 절대값으로 만들어줍니다.
@@ -99,6 +111,9 @@
             <HLTS language={lua} code={$missileTracking2}/>
         </div>
     </div>
+    <div id="end">
+        <HLTS language={lua} code={$endCode}/>
+    </div>
 </div>
 
 <style>
@@ -106,6 +121,43 @@
         line-height: 1.5;
         padding: 0;
         margin: 0;
+    }
+
+    #end {
+        height: 100%;
+        width: 100%;
+        background-color: #011627;
+        color: white;
+        font-size: 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        font-weight: 700;
+    }
+
+    #intro {
+        height: 100%;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        background-color: #001C40;
+        font-weight: 500;
+    }
+
+    #intro i {
+        font-size: 15rem;
+        color: #FF3399;
+    }
+
+    #intro p {
+        font-size: 2rem;
+        text-align: center;
+        margin: 0 15%;
+        color: white;
+        text-align: justify;
     }
 
     samp {
@@ -124,6 +176,20 @@
         overflow-y: scroll;
         height: 100%;
         width: 100%;
+    }
+
+    #component-code::-webkit-scrollbar {
+        width: 10px;
+    }
+
+    #component-code::-webkit-scrollbar-thumb {
+        background-color: #E2B640;
+        border-radius: 10px;
+    }
+
+    #component-code::-webkit-scrollbar-track {
+        background-color: #001126;
+        border-radius: 10px;
     }
 
     .container {
@@ -184,8 +250,25 @@
             font-size: 1.5rem;
         }
 
-        .code, .desc p {
+        .desc p {
             font-size: 1rem;
+        }
+
+        .code {
+            font-size: 0.75rem;
+        }
+
+        #intro i {
+            font-size: 10rem;
+        }
+
+        #intro p {
+            font-size: 1.25rem;
+            margin: 7.5%;
+        }
+
+        #end {
+            font-size: 1.25rem;
         }
     }
 </style>
