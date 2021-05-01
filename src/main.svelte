@@ -9,6 +9,8 @@
     import About from "./routes/about.svelte"
     import Career from "./routes/career.svelte"
     import Code from "./routes/code.svelte"
+    import Resume from "./routes/resume.svelte"
+    import NotFound from "./routes/notfound.svelte"
 
     // Toggle
     function btnFunc() {
@@ -27,7 +29,9 @@
         "/about": About,
         "/career": Career,
         "/code": Code,
-        "/menu": Menu
+        "/Resume": Resume,
+        "/menu": Menu,
+        "*": NotFound
     }
 </script>
 

@@ -1,6 +1,7 @@
 <script>
     import HLTS from "svelte-highlight";
     import lua from "svelte-highlight/src/languages/lua";
+    import vbs from "svelte-highlight/src/languages/vbscript";
     import theme from "svelte-highlight/src/styles/night-Owl";
 
     import {
@@ -8,6 +9,13 @@
         getUnitAngel,
         missileTracking1,
         missileTracking2,
+        GetEom,
+        IsDate,
+        ConnDB,
+        Upload,
+        IsExtended,
+        Convert1,
+        Convert2,
         endCode
     } from "../store.js"
 </script>
@@ -56,9 +64,9 @@
                 <samp>dz</samp>, <samp>dx</samp> 는 각 차원의
                 델타값을 메모리에 할당합니다.
                 음수 반환이 가능한 아크탄젠트 메서드인
-                <strong>math.atan2</strong> 를 통해 상대적 라디안 값을 얻고
-                그 라디안 값을 <strong>math.deg</strong> 에 인자로 전달하여
-                육십분각으로 변환 후 리턴시키고 함수를 종료합니다.
+                <strong>math.atan2</strong> 를 통해 상대적 라디안 값을 얻어
+                해당 값을 <strong>math.deg</strong> 에 인자로 전달하고
+                육십분각으로 변환 후 리턴시킨 다음에 함수를 종료합니다.
                 만약 결과값이 음수이면 360을 더해 절대값으로 만들어줍니다.
             </p>
         </div>
@@ -109,6 +117,127 @@
         </div>
         <div class="code">
             <HLTS language={lua} code={$missileTracking2}/>
+        </div>
+    </div>
+    <div class="container">
+        <div class="desc">
+            <h1>해당 월의 마지막 일자 획득</h1>
+            <p>
+                이 전역 함수는 날짜 스트링을 값으로 전달받아
+                데이트 형식으로 바꾸고 워크시트의 기본 함수를 통해
+                해당 월의 마지막 일자를 반환하는 VBA 코드입니다.
+                항공기에 장착되는 부품의 정확한 사용한계를
+                계산하기 위하여 사람이 직접 달력을 찾아
+                잘못된 값을 수정하는 것이 아닌 반복문을 통하여
+                자동으로 엑셀의 모든 관련 일자를 마지막 일자로
+                재입력시키는 코드입니다. 반드시 <samp>ByVal</samp>
+                선언을 통하여 메모리 참조가 아닌 값을 다른 메모리 구획에
+                할당시켜야 반복문에서의 에러를 방지할 수 있습니다.
+            </p>
+        </div>
+        <div class="code">
+            <HLTS language={vbs} code={$GetEom}/>
+        </div>
+    </div>
+    <div class="container bg">
+        <div class="desc">
+            <h1>날짜 데이터 유효성 검증</h1>
+            <p>
+                이 전역 함수는 자료의 날짜가 유효한지 검사합니다.
+                에러 제어 구문이 사용되었으며 스트링 값을 데이트 값으로
+                변환시키는 <strong>CDate</strong> 함수에서 에러가 발생하면
+                프로세서는 실행지점을 <samp>Failed:</samp> 로 이동합니다.
+                <strong>CDate</strong> 가 실패하였다는 것은 이유야 어찌되었든
+                날짜 형식으로 유효하지 않기 때문에 함수는 <samp>False</samp>
+                를 리턴하고 종료됩니다. 만약 값이 유효하다면 <samp>True</samp>
+                를 반환하고 함수를 종료합니다.
+            </p>
+        </div>
+        <div class="code">
+            <HLTS language={vbs} code={$IsDate}/>
+        </div>
+    </div>
+    <div class="container">
+        <div class="desc">
+            <h1>데이터베이스 연결</h1>
+            <p>
+                이 함수는 데이터베이스를 연결하는 과정을 객체화한 모델입니다.
+                데이터베이스의 경로 데이터가 삽입된 스트링 스트림을 리턴하는데
+                이는 데이터베이스에 연결이 필요할 때 단순한 함수를 호출하는 것
+                하나로 이루어질 수 있도록 하는 편리함을 제공합니다. 함수 아래에
+                있는 예시에서의 <strong>Database.Open ConnDB()</strong> 는 어느
+                서브루틴 또는 함수안에서 실행될 수 있습니다.
+            </p>
+        </div>
+        <div class="code">
+            <HLTS language={vbs} code={$ConnDB}/>
+        </div>
+    </div>
+    <div class="container bg">
+        <div class="desc">
+            <h1>VBA 에서의 SQL 사용 1</h1>
+            <p>
+                이 코드는 연결된 데이터베이스에 SQL 을 실행하는 코드입니다.
+                <samp>Lr</samp>, <samp>Lc</samp> 는 각각 마지막 행과 열을 말하며
+                워크시트의 2번 행부터 마지막 행까지 모든 열의 정보를 SQL 로
+                구축하는 내용이 반복문에 구현되어 있습니다.
+                <strong>Database.Execute</strong> 메서드를 통해
+                이 구문을 데이터베이스로 실행하도록 할 수 있습니다.
+            </p>
+        </div>
+        <div class="code">
+            <HLTS language={vbs} code={$Upload}/>
+        </div>
+    </div>
+    <div class="container">
+        <div class="desc">
+            <h1>VBA 에서의 SQL 사용 2</h1>
+            <p>
+                이 함수는 데이터베이스의 자료를 가져오는 코드입니다.
+                SQL 명령문을 보내면 <strong>Record</strong> 로 반환되며
+                만약 레코드의 수가 0 보다 클 때에는 해당하는 데이터가
+                존재하므로 <samp>Data</samp> 정적 배열로 반환합니다.
+                이 명령에서는 물건의 재고번호와 일련번호를 통해
+                유니크한 레코드를 가져오는 것이므로
+                레코드 수가 없거나 오직 하나가 존재하는
+                두 경우만 존재합니다.
+            </p>
+        </div>
+        <div class="code">
+            <HLTS language={vbs} code={$IsExtended}/>
+        </div>
+    </div>
+    <div class="container bg">
+        <div class="desc">
+            <h1>VBA 에서의 COM 인터페이스 사용 1</h1>
+            <p>
+                이 코드는 VBA 에서 터미널을 통해 COM 인터페이스를
+                사용하는 코드입니다. 공공기관에서는 엑셀이 아닌 한셀을
+                사용하는데 이것을 엑셀로 변환할 때에 수동으로 하는 불편함을
+                해소하고자 만든 코드입니다. 이 코드에서는 우선 파워쉘을
+                사용하며 파워쉘 파일을 만드는 코드입니다.
+                파워쉘 코드와 터미널에서의 실행은 아래의 2번을 참고하십시오.
+            </p>
+        </div>
+        <div class="code">
+            <HLTS language={vbs} code={$Convert1}/>
+        </div>
+    </div>
+    <div class="container">
+        <div class="desc">
+            <h1>VBA 에서의 COM 인터페이스 사용 2</h1>
+            <p>
+                COM 인터페이스를 통해 프로그램을 열지 않고 내부적으로
+                제어할 수 있습니다. 이 파워쉘 코드는 한셀 파일을
+                COM 으로 열고 51번 형식(.xlsx)으로 저장시키는
+                기능을 합니다. 변환이 완료된 후 파워쉘 파일과
+                한셀 프로그램은 자동으로 제거되고 종료됩니다.
+                터미널에서의 실행은 실행 정책을 우회하여
+                최대 화면 크기에서 실행됩니다.
+            </p>
+        </div>
+        <div class="code">
+            <HLTS language={vbs} code={$Convert2}/>
         </div>
     </div>
     <div id="end">
@@ -178,20 +307,6 @@
         width: 100%;
     }
 
-    #component-code::-webkit-scrollbar {
-        width: 10px;
-    }
-
-    #component-code::-webkit-scrollbar-thumb {
-        background-color: #E2B640;
-        border-radius: 10px;
-    }
-
-    #component-code::-webkit-scrollbar-track {
-        background-color: #001126;
-        border-radius: 10px;
-    }
-
     .container {
         display: grid;
         grid-template-columns: 1fr 1fr;
@@ -225,7 +340,7 @@
     }
 
     .code {
-        font-size: 1.75rem;
+        font-size: 1.25rem;
         font-weight: 700;
         background-color: #011627;
         display: flex;

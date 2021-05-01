@@ -5,7 +5,7 @@
     import { quintOut } from "svelte/easing"
 
     const menus = [
-        "home", "about", "career", "code"
+        "home", "about", "career", "code", "resume"
     ]
 
     function btnFunc() {
