@@ -18,6 +18,10 @@
         Convert2,
         endCode
     } from "../store.js"
+
+    function gitLink() {
+        window.location.href="https://github.com/MIHO314/resume";
+    }
 </script>
 
 <svelte:head>
@@ -26,13 +30,15 @@
 
 <div id="component-code">
     <div id="intro">
-        <i class="fas fa-laptop-code"></i>
+        <i class="fas fa-laptop-code"
+            on:click={gitLink}
+        ></i>
         <p>
             이 섹션에는 제가 작성한 코드들이 있습니다.
             더 자세한 코드는 저의 깃허브에서 보실 수 있습니다.
-            깃허브 링크는 About 섹션 하단에서 찾으실 수 있습니다.
-            다만 VBA 코드의 경우 정부 인트라넷에서 사용되므로
-            보안 관계상 깃허브에서 보실 수 없습니다.
+            깃허브 링크는 위의 이미지를 클릭하시면 연결됩니다.
+            다만 엑셀 및 한셀 VBA 코드의 경우 정부 인트라넷에서
+            사용되므로 보안 관계상 깃허브에서 보실 수 없습니다.
             양해를 바랍니다.
         </p>
     </div>
@@ -370,7 +376,7 @@
         }
 
         .code {
-            font-size: 0.75rem;
+            font-size: 0.50rem;
         }
 
         #intro i {

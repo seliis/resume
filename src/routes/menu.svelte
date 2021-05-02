@@ -3,13 +3,19 @@
     import { menuBool } from "../store.js"
     import { slide } from "svelte/transition"
     import { quintOut } from "svelte/easing"
+    import Resume from "../../public/document/resume.html"
 
     const menus = [
-        "home", "about", "career", "code", "resume"
+        "home", "about", "career", "code", "resume-doc"
     ]
 
     function btnFunc() {
         $menuBool = !$menuBool;
+    }
+
+    function docFunc() {
+        $menuBool = !$menuBool;
+        window.open(Resume, "_blank");
     }
 
     const menuOps = {
@@ -24,6 +30,13 @@
         {#if menu == "home"}
             <a href="/" use:link on:click={btnFunc}>
                 {menu}
+            </a>
+        {:else if menu == "resume-doc"}
+            <a href="/" style="
+                background-color: #FD2F4A;
+                color: #001126;
+            " on:click={docFunc} use:link>
+                Resume
             </a>
         {:else}
             <a href="/{menu}" use:link on:click={btnFunc}>
