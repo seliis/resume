@@ -167,7 +167,7 @@ export let Convert1 = writable(
 
     Application.Wait Now + TimeSerial(0, 0, 10)
     Convert = Path
-End Funtion`
+End Function`
 );
 
 export let Convert2 = writable(

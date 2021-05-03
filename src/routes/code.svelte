@@ -285,6 +285,7 @@
     #intro i {
         font-size: 15rem;
         color: #FF3399;
+        cursor: pointer;
     }
 
     #intro p {
@@ -376,7 +377,7 @@
         }
 
         .code {
-            font-size: 0.50rem;
+            font-size: 0.75rem;
         }
 
         #intro i {
