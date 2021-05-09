@@ -347,6 +347,7 @@
     }
 
     .code {
+        font-family: "Ubuntu Mono", monospace;
         font-size: 1.25rem;
         font-weight: 700;
         background-color: #011627;
