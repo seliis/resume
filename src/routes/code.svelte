@@ -39,7 +39,9 @@
             깃허브 링크는 위의 이미지를 클릭하시면 연결됩니다.
             다만 엑셀 및 한셀 VBA 코드의 경우 정부 인트라넷에서
             사용되므로 보안 관계상 깃허브에서 보실 수 없습니다.
-            양해를 바랍니다.
+            양해를 바랍니다. 만약 코드의 폰트가 깔끔하게
+            그려지지 않는다면 브라우저의 설정에서 고정폭글꼴을
+            Consolas 로 바꾸어보시기 바랍니다.
         </p>
     </div>
     <div class="container">
@@ -297,14 +299,15 @@
     }
 
     samp {
+        font-family: "Ubuntu Mono", monospace;
         color: #7FDBCA;
         font-weight: 700;
     }
 
     strong {
+        font-family: "Ubuntu Mono", monospace;
         color: #ADDB67;
         font-weight: 700;
-        font-family: "Ubuntu Mono", monospace;
     }
 
     #component-code {
